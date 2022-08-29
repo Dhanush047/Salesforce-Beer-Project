@@ -1,0 +1,54 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    
+    <lightning:overlayLibrary aura:id="overlayLib"/>
+    
+    <aura:attribute name="Beerrecordlist" type="Object" />
+    
+    <aura:attribute name = "BeerDisplay" type = "String" />
+    
+    <aura:registerEvent name="cartdetails" type="c:CartInfoEvent"/>
+    
+    
+    <div  class="slds-grid slds-wrap" style="background-image: url(https://thumbs.dreamstime.com/b/pattern-wallpaper-metal-cork-beer-bottle-colored-seamless-curved-craft-brewery-can-retro-bar-design-198249342.jpg);">
+        <!-- {!v.listitems} -->
+        {!v.recordid}
+        <aura:iteration items="{!v.Beerrecordlist}" var="item" indexVar = "index">
+            <div class="slds-col slds-size_1-of-4 slds-p-around_small">
+                <lightning:card  title="{!item.Name}" footer="{!item.Brewery_Name__c}"
+                                iconName="custom:custom7" >
+                    <p class="slds-p-horizontal_small">
+                        
+                        <div class="slds-grid slds-gutters">
+                            <div class="slds-col slds-size_1-of-3" >   
+                                <img src="{!item.Image__c }" style =" height: 100px; width: 100px;"/>
+                            </div>
+                            <div class="slds-col slds-size_2-of-3">
+                                
+                                Name       :  {!item.Name} <br/>
+                                Id         :  {!item.Id} <br/> 
+                                Alcohol %  :  {!item.Alcohol__c}<br/> 
+                                Tags       :  {!item.Tags__c}<br/> 
+                                Price      :  {!item.Price__c }
+                                
+                            </div>
+                        </div>
+                    </p>
+                    <aura:set attribute="actions">
+                        <lightning:button name="{!item.Id}" label ="View Details" variant ="brand-outline"
+                                          onclick ="{!c.Redirect}"
+                                          />
+                    </aura:set>
+                    
+                
+                <aura:set attribute="footer">
+                        <lightning:button name="{!item.Id}" label="Add to Cart" 
+                                          value= "{!index}"
+                                          variant="brand-outline" onclick="{!c.AddToCart}"/>
+                    </aura:set>
+                </lightning:card>
+                
+            </div>
+        </aura:iteration>
+    </div>
+    <!--<c:BeerDetail BeerDetailpage = "{!v.BeerDisplay}" />-->
+</aura:component>

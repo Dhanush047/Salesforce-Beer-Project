@@ -1,0 +1,17 @@
+<aura:component implements="flexipage:availableForRecordHome,flexipage:availableForAllPageTypes" access="global" >
+    <h1>Contact View Component</h1>
+ 	<aura:attribute name="contactList" type="Object" /> 
+    
+    <aura:handler name="CreateContacts" event="c:CreateContactEvent" action="{!c.doHandleEvent}" />
+
+    <c:CreateContactComponent  />
+    
+   <h1> REVIEW COMPONENT</h1>
+   <c:ReviewComponent  contactList = "{!v.contactList}"/>
+    
+   
+    
+
+
+    
+</aura:component>

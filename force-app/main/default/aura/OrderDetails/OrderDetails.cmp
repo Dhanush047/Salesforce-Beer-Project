@@ -1,0 +1,58 @@
+<aura:component implements="lightning:isUrlAddressable">
+    
+    <aura:attribute name = "orderId" type = "String" />
+    
+    <aura:attribute name="fields" type="String[]" default="['Beer__c','Order_Amount__c','Ordered_Quantity__c','Shipping_City__c','Shipping_Country__c']" />
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <div class="slds-p-around_small" style = "font-size: xx-large; text-align: center;
+                                              font-family: fantasy;color:#293462;background-image:url()">
+        <p> ORDER  DETAILS</p>
+        
+    </div>
+    
+    
+    <aura:attribute name="record" type="Object" />
+    <aura:attribute name="simpleRecord" type="Object" />
+    <aura:attribute name="recordError" type="String" />
+    
+    <force:recordData aura:id="recordViewer"
+                      layoutType="FULL"
+                      recordId="{!v.orderId}"
+                      targetError="{!v.recordError}"
+                      targetRecord="{!v.record}"
+                      targetFields ="{!v.simpleRecord}"
+                      mode="VIEW" />
+    <div class="slds-page-header">
+        <div class="slds-page-header__row">
+            <div class="slds-page-header__col-title">
+                <div class="slds-media">
+                    <div class="slds-media__figure">
+                        <span class="slds-icon_container slds-icon-standard-opportunity" title="opportunity">
+                            
+                            <span class="slds-assistive-text">opportunity</span>
+                        </span>
+                    </div>
+                    <div class="slds-media__body">
+                        <div class="slds-page-header__name">
+                            <div class="slds-page-header__name-title">
+                                <h1>
+                                    <span class="slds-page-header__title slds-truncate" title="Order Id">{!v.simpleRecord.Name}</span>
+                                </h1>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div style = "background-color:#ffe066"/>
+    
+    <lightning:recordForm aura:id="myRecordForm" recordId="{!v.orderId}" objectApiName="Beer_Order__c" fields="{!v.fields}" columns="0" mode="ReadOnly"/>
+    
+    
+</aura:component>

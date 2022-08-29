@@ -1,0 +1,29 @@
+<aura:component Controller = "AccountListComp" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    <aura:attribute name = "acclist" type = "List" access = "public" />
+    <aura:attribute name = "search" type = "string" access = "public" />
+    <lightning:input type="string" name="Search" placeholder="Search Account" label="Search Here" value ="{!v.search}" />
+    <lightning:button variant="brand-outline" label="Search" title="Brand action" onclick="{! c.handleClick }" />
+    {!v.search}
+    <div class ="slds-p-around_small">
+        
+        <aura:iteration items="{!v.acclist}" var="item">
+            <div class="slds-col slds-size_2-of-2 slds-p-around_small"><!---->
+                
+                <lightning:card title ="{!item.Name}" 
+                                
+                                iconName="Standard:contact">
+                    
+                    <p class="slds-p-horizontal_small">
+                        {!item.Name} <br/>
+                        {!item.Id}<br/>
+                        {!item.Phone}<br/>
+                        {!item.Type}<br/>
+                        {!item.Email__c}<br/>
+                    </p>   
+                    
+                </lightning:card>
+            </div>	
+        </aura:iteration>
+        
+    </div>  
+</aura:component>

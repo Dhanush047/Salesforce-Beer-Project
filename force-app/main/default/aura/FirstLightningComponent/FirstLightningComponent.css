@@ -1,0 +1,41 @@
+.THIS {
+    background-color : yellow;
+    
+}
+h1.THIS
+{
+    font-size:18pt;
+    color : blue;
+    background-color : orange;
+}
+.THIS.sf
+{
+    font-size:18pt;
+    color : red;
+    background-color : green;
+}
+.THIS.para
+{
+    font-size:12pt;
+    color : black;
+    background-color : pink !Important;
+}
+h2.THIS{
+    font-size:16pt;
+}
+h3.THIS
+{
+    font-size:14pt;
+}
+h4.THIS
+{
+    font-size:12pt;
+}
+h5.THIS
+{
+    font-size:10pt;
+}
+h6.THIS
+{
+    font-size:8pt;
+}

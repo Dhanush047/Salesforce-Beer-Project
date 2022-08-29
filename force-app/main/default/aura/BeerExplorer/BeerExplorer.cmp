@@ -1,0 +1,19 @@
+<aura:component Controller = "BeerList" implements="force:appHostable" >
+    
+    <aura:handler name="init" value ="{!this}" action = "{!c.handle}"/>
+    
+    <!--<aura:handler event="c:CartInfoEvent" action="{!c.cart}"/>-->
+    
+    <aura:handler name = "BeerEvent" event = "c:BeerSearchEvent" action = "{!c.handle}" />
+    
+    <aura:attribute name="beerList" type="Object" />
+  
+    <c:BeerHeader Heading = "B E E R  W O R L D"/>
+
+    <c:BeerSearch/> 
+    
+    
+    <c:BeerListComponent Beerrecordlist = "{!v.beerList}"/>
+    
+    
+</aura:component>

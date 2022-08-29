@@ -1,0 +1,16 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global" >
+    
+    <Aura:Attribute name= 'contact' type = 'contact' access ='public' default = '9788156163' />
+    {!v.contact}
+    <br> </br>
+    <Aura:Attribute name= "colors" type = "string[]" default ="['red','green','blue']" access ="public" />
+    {!v.colors[2]}
+    <br> </br>
+    <Aura:Attribute name= 'colorsList' type = 'List' default ="['red','green','blue']" access ='public ' />
+    {!v.colorsList[1]}
+    <br> </br>
+    <Aura:Attribute name= 'colorsset' type = 'set' default ="['red','green','blue']" access ='public ' />
+    {!v.colorsset[0]}
+    <br> </br>
+    <lightning:button variant="brand-outline" label="Brand Outline" title="Brand action" onclick="{! c.handleClick }" />
+</aura:component>

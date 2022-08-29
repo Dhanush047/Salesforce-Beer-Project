@@ -1,0 +1,20 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global" >
+    <aura:attribute name = "num1" type = "Integer" access = "public" />
+    <aura:attribute name = "num2" type = "Integer" access = "public" />
+    <aura:attribute name = "result" type = "Integer" access = "public" />
+    
+    
+    <div class="slds-p-around_medium">
+        <lightning:input type="number" name="input1" placeholder="Enter Input 1" label="Input 1" value ="{!v.num1}" />
+        <lightning:input type="number" name="input2" placeholder="Enter Input 2" label="Input 2" value="{!v.num2}" />
+        <lightning:input type="number" name="Result" readonly="" label="Result" value="{!v.result}" />
+        
+        <br> </br>
+        
+        <lightning:button variant="brand-outline" label="Add" onclick="{! c.addClick }" />
+        <lightning:button variant="brand-outline" label="Subtract" onclick="{! c.subClick }" />
+        <lightning:button variant="brand-outline" label="Multiply" onclick="{! c.multClick }" />
+        <lightning:button variant="brand-outline" label="Divide" onclick="{! c.divClick }" />
+    </div>
+    
+</aura:component>

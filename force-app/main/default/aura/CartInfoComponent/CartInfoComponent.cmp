@@ -1,0 +1,15 @@
+<aura:component >
+    <aura:attribute name="recordList" type="Object" />
+    <aura:attribute name="cartList" type="Object" />
+    <aura:handler event="c:CartInfoEvent" action="{!c.cart}"/>                                                      
+    <lightning:layOut>
+        <lightning:layOutitem>
+            <a href="JavaScript:void(0);" onclick="{!c.goToCart}"  >
+                <lightning:icon iconName="standard:webcart" size="large"/>
+            </a>
+            <span style="font-size: 2.1rem;">  {!v.cartList.length}</span>
+        </lightning:layOutitem>
+    </lightning:layOut>
+
+
+</aura:component>

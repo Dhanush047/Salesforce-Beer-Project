@@ -1,0 +1,9 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    <h1> Welcome</h1>
+    <h1 class = "sf">  SALESFORCE </h1>
+	<h2> Welcome </h2>
+    <h3> Welcome </h3>
+    <div class = "para"> 
+        <p > Welcome here to view all the details of salesforce </p>
+    </div>
+</aura:component>

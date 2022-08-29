@@ -1,0 +1,16 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global" >
+    <div class="slds-p-around_xx-small">
+    <h1> WELCOME TO HOME PAGE </h1>
+    <h2> WELCOME TO HOME PAGE </h2>
+    <h3> WELCOME TO HOME PAGE </h3>
+    <h4> WELCOME TO HOME PAGE </h4>
+    <h5> WELCOME TO HOME PAGE </h5>
+    <h6> WELCOME TO HOME PAGE </h6>
+    
+    <h1 class = "saf"> THIS IS SALESFORCE PAGE </h1>
+    
+    <div class = "divclass"> 
+    	<h2> THIS COLOR WILL BE CHANGED </h2>
+    </div>
+    </div>
+</aura:component>

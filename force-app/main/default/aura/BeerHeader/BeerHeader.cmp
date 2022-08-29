@@ -1,0 +1,35 @@
+<aura:component implements="force:appHostable" >
+    <aura:attribute name = "Heading" type = "string" access = "public" />
+    
+    <aura:attribute name = "Message" type = "string" access = "public" />
+   
+   <div class="slds-page-header " style ="
+                                           background-color: #f7d327;
+                                           font-size: xxx-large;
+                                           text-align: center;
+                                           font-family: fantasy;
+                                           color: #063970;">
+        <div class="slds-page-header__row">
+            <div class="slds-page-header__col-title">
+                <div class="slds-media">
+                    <div class="slds-media__figure">
+                    </div>
+                    <div class="slds-media__body">
+                        <div class="slds-page-header__name">
+                            <div class="slds-page-header__name-title">
+                                <h1>
+                                    {!v.Heading}
+                                </h1>
+                            </div>
+                        </div>
+                        <p>
+                            
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <c:CartInfoComponent/>
+        </div>
+    </div>  
+    
+</aura:component>

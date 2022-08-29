@@ -1,0 +1,27 @@
+trigger ApexTrig on Account (before insert,before update,before delete, after insert) 
+{
+    if(Trigger.isbefore)
+    {
+        system.debug(Trigger.new);
+        if(Trigger.isinsert)
+        {
+            //AccTriggerHandler.acctri(Trigger.new);
+            AccTriggerHandler.acctrigger(Trigger.new);
+        }
+        if(Trigger.isupdate)
+        {
+            AccTriggerHandler.beforeupdate(Trigger.new);
+        }
+        if(Trigger.isdelete)
+        {
+            AccTriggerHandler.beforedelete(Trigger.new);
+        }
+    }
+    if(Trigger.isAfter)
+    {
+        if(Trigger.Isinsert)
+        {
+            AccTriggerHandler.contactcreation(Trigger.new);
+        }
+    }
+}

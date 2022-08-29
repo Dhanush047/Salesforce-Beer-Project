@@ -1,0 +1,12 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    
+    <aura:attribute name = "heading" access = "public" type = "string" default = "MOBILE ZONE"/>
+    
+    <div style =     "font-size: xxx-large;
+                      background-color: chartreuse;
+                      text-align: center;
+                      font-family: cursive;">
+        {!v.heading}
+    </div>
+    
+</aura:component>

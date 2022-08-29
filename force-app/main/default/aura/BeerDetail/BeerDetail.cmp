@@ -1,0 +1,26 @@
+<aura:component >
+    
+    <aura:attribute name="beerId" type="String" />
+    
+    <lightning:navigation aura:id="navService"/>
+    
+    {!v.beerId}
+
+    <div class="slds-box slds-box_small">
+        <div class="slds-box slds-theme_shade slds-theme_alert-texture">
+            <div class="slds-p-around_large">
+                <lightning:recordForm
+                                      recordId="{!v.beerId}"
+                                      objectApiName="Beer__c"
+                                      layoutType="Full"
+                                      columns="2"
+                                      mode="readonly" />
+                <div>
+                    <center>
+                        <lightning:button variant="brand" label="Order Now" title="Brand action" onclick="{!c.handleClick}" />
+                    </center>
+                </div>
+            </div>
+        </div>
+    </div>
+</aura:component>

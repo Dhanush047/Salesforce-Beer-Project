@@ -1,0 +1,13 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global" >
+    <div class="slds-p-around_medium">
+        <h1 > WHAT IS SALESFORCE</h1>
+        <p> Salesforce, Inc. is an American cloud-based software company headquartered in San Francisco,
+            California. It provides customer relationship management software and applications focused on sales,
+            customer service, marketing automation, analytics, and application development</p>
+        <br/>
+        <h1> WHAT IS AURA</h1>
+        <p> Aura is a framework for developing apps for mobile and desktop devices. 
+            In existence since 2013, Aura enables developers to build apps that are independent of data that resides in Salesforce,
+            so development can be less disruptive to day-to-day users.</p>
+    </div>
+</aura:component>

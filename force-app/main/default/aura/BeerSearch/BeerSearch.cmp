@@ -1,0 +1,20 @@
+<aura:component implements="force:appHostable" >
+    
+    <aura:registerEvent name = "BeerEvent" type="c:BeerSearchEvent" />
+    
+    <div class="slds-p-around_small" style = "background-color: #f7d327;">
+        <div>
+            <lightning:input
+                             name="inline-search-input"
+                             label="Beer Search"
+                             type="search"
+                             variant="label-hidden"
+                             aura:id ="searchInput"
+                             onchange ="{!c.dosearch}"
+                             
+                             />
+        </div>
+        
+    </div>
+    
+</aura:component>
