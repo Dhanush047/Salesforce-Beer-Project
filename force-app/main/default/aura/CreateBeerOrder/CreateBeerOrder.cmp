@@ -27,13 +27,13 @@
     <aura:attribute name="record" type="Object" />
     <aura:attribute name="simpleRecord" type="Object" />
     <aura:attribute name="recordError" type="String" />
-    <force:recordData aura:id="recordViewer"
+    <force:recordData aura:id="recordEditor"
                       layoutType="FULL"
                       recordId="{!v.beerId}"
                       targetError="{!v.recordError}"
                       targetRecord="{!v.record}"
                       targetFields ="{!v.simpleRecord}"
-                      mode="VIEW" />
+                      mode="EDIT" />
         
     <!-- Create Beer Record Form -->
     <div class="slds-p-around_small">

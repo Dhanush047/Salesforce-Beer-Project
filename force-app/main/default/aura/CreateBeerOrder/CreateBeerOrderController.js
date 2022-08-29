@@ -7,7 +7,7 @@
             			  var state = pageReference.state; 
             			  
                           component.set('v.beerId',state.c__beerId); 
-                          component.find("recordViewer").reloadRecord();
+                          component.find("recordEditor").reloadRecord();
                          
                          }
         component.find("newRecordCreator").getNewRecord( "Beer_Order__c", null, false, $A.getCallback(function() 
