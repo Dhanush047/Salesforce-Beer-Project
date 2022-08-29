@@ -50,7 +50,7 @@
     </div>
     
     
-    <div style = "background-color:#ffe066"/>
+    <div style = "background-color:#ffffff"/>
     
     <lightning:recordForm aura:id="myRecordForm" recordId="{!v.orderId}" objectApiName="Beer_Order__c" fields="{!v.fields}" columns="0" mode="ReadOnly"/>
     

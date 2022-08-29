@@ -6,5 +6,34 @@
             return validSoFar && inputCmp.get('v.validity').valid;
         }, true);
         return isValid; 
-	}
+	},
+    updateBeerQty : function(component, event, totalQnty, recordId)
+    {
+        var beetQnty = component.get('v.simpleRecord.Total_Quantity__c');
+        alert(beetQnty)
+        alert(recordId)
+        var remainingQnty = parseInt(beetQnty) - parseInt(totalQnty)
+        console.log(remainingQnty)
+        alert(remainingQnty)
+        component.set('v.simpleRecord.Total_Quantity__c',remainingQnty);
+        component.find("recordEditor").saveRecord(function(saveResult) 
+        {
+            if (saveResult.state === "SUCCESS" || saveResult.state === "DRAFT") 
+            {
+                var pageReference = component.find("navService");
+                  var pageReferenceNav = {    
+          		  "type": "standard__component",
+           		  "attributes": {
+                  "componentName": "c__OrderDetails"    
+            },    
+           		  state: {
+                  c__OrderId : recordId
+                 
+            }
+        };
+        pageReference.navigate(pageReferenceNav);
+    
+            } 
+        });
+    }
 })
