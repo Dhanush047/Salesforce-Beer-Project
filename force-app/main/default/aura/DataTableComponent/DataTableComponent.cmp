@@ -1,0 +1,6 @@
+<aura:component>
+    <aura:attribute name="data" type="object" />
+    <aura:attribute name="column" type="object" />
+    
+</aura:component>	
+
