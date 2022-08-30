@@ -1,6 +1,9 @@
 <aura:component >
     <aura:attribute name="recordList" type="Object" />
     <aura:attribute name="cartList" type="Object" />
+
+    <lightning:navigation aura:id="navService"/>
+    
     <aura:handler event="c:CartInfoEvent" action="{!c.cart}"/>                                                      
     <lightning:layOut>
         <lightning:layOutitem>

@@ -1,16 +1,10 @@
 ({
     init: function (component, event, helper) 
     {
-        var actions = [{
-            label : 'Show Details',
-            name : 'show_details',
-            iconName : 'action:preview'
-        },
-                       {
-                           label : 'Delete',
-                           name : 'delete',
-                           iconName : 'action:delete'
-                       }];
+        var actions = [
+            { label: 'Show details', name: 'show_details' },
+            { label: 'Delete', name: 'delete' }
+        ];
         component.set('v.column', [
             {label: 'Beer Order Number', fieldName: 'Name', type: 'text'},
             {label: 'Order Amount', fieldName: 'Order_Amount__c', type: 'Currency'},
@@ -32,7 +26,6 @@
     onrowselect: function (component, event, helper) 
     {
         var selectrow = event.getParam('selectedRows');
-        alert(selectrow);
         console.log(selectrow);
     }
 })

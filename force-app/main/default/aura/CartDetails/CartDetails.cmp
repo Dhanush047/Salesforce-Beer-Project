@@ -1,0 +1,4 @@
+<aura:component implements="lightning:isUrlAddressable">
+    <aura:attribute name = "cartRecord" type="Object"/>
+    <h1> Order Details</h1>
+</aura:component>	
