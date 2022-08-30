@@ -1,6 +1,16 @@
 ({
     init: function (component, event, helper) 
     {
+        var actions = [{
+            label : 'Show Details',
+            name : 'show_details',
+            iconName : 'action:preview'
+        },
+                       {
+                           label : 'Delete',
+                           name : 'delete',
+                           iconName : 'action:delete'
+                       }];
         component.set('v.column', [
             {label: 'Beer Order Number', fieldName: 'Name', type: 'text'},
             {label: 'Order Amount', fieldName: 'Order_Amount__c', type: 'Currency'},
