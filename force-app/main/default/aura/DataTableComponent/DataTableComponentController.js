@@ -18,5 +18,11 @@
             }
         });
         $A.enqueueAction(action);
+    },
+    onrowselect: function (component, event, helper) 
+    {
+        var selectrow = event.getParam('selectedRows');
+        alert(selectrow);
+        console.log(selectrow);
     }
 })

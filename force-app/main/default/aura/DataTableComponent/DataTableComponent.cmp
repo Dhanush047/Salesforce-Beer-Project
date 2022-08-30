@@ -9,7 +9,8 @@
                 keyField="id"
                 data="{! v.data }"
                 columns="{! v.column }"
-                hideCheckboxColumn="true"/>
+                hideCheckboxColumn="false"
+                onrowselection="{!c.onrowselect}"/>
     </div>
 </aura:component>	
 
