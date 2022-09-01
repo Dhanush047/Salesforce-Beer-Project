@@ -1,3 +1,5 @@
-<aura:component>
-
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId,flexipage:availableForAllPageTypes">
+    <aura:attribute name="mapMarker" type="Object" />
+    <aura:attribute name="zoomLevel" type="Integer" />
+    
 </aura:component>	
