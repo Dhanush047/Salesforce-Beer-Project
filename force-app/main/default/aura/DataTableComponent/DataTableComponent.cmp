@@ -12,5 +12,4 @@
                 hideCheckboxColumn="false"
                 onrowselection="{!c.onrowselect}"/>
     </div>
-</aura:component>	
-
+</aura:component>

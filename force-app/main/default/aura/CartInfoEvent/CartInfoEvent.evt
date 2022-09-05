@@ -1,5 +1,5 @@
 <aura:event type="APPLICATION" description="Event template">
 
-    <aura:attribute name = "cartinforecord" type = "Object"/>
+    <aura:attribute name = "cartinforecord" type = "object"/>
 
 </aura:event>

@@ -1,19 +1,10 @@
 ({
-    goToCart : function(component, event, helper)
+    doInit : function(component, event, helper)
     {
-        alert("NAvigate")
-       /* var pageReference = component.find("navService");
-
-        var pageReferenceNav = {    
-            "type": "standard__component",
-            "attributes": {
-                "componentName": "c__CartDetails"    
-            },    
-            state: {
-                c__cartRecord : component.get("v.recordList")
-                
-            }
-        };
-        pageReference.navigate(pageReferenceNav);*/
+        var pageReference = component.get('v.pageReference');
+        var state = pageReference.state;
+        
+        console.log(' cartId ' ,state.cartId__c);
+        component.set('v.cartId',state.cartId__c );
     }
 })

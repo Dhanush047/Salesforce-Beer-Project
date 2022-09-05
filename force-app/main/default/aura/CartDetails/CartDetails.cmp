@@ -1,4 +1,64 @@
-<aura:component implements="lightning:isUrlAddressable">
-    <aura:attribute name = "cartRecord" type="Object"/>
-    <h1> Order Details</h1>
-</aura:component>	
+<aura:component implements="lightning:isUrlAddressable" >
+    
+    <aura:attribute name="cartId" type="String" />
+    <aura:attribute name="cartItemList" type="Object" />
+  <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <div  class="slds-p-around_medium"> 
+        <div class="c-container">
+            <lightning:layout multipleRows="true">
+                <!--Header-->
+                <lightning:layoutItem padding="around-small" size="12">
+                    <div class="page-section page-header" 
+                         style =" background-color: #0F3D3E;
+                                 text-align: center;
+                                 
+                                 color:white;">
+                        <h1> Cart Detail Page</h1>
+                    </div>
+                    
+                </lightning:layoutItem>
+                <lightning:layoutItem padding="around-small" size="12">
+                    <lightning:layout>
+                        
+                        <lightning:layoutItem padding="around-small" size="8">
+                            <div class="page-section page-main">
+                                    <!--Main-->
+                          <!--            <aura:if isTrue="{!v.cartItemList.length > 0}">
+                                    <div class="slds-grid slds-wrap">
+                                        <div class="slds-col slds-size_1-of-4"></div>
+                                        <div class="slds-col slds-size_1-of-4"><b>Price</b></div>
+                                        <div class="slds-col slds-size_1-of-4"><b>Quantity</b></div>
+                                        <div class="slds-col slds-size_1-of-4"></div>
+                                    </div>
+                                    <aura:iteration items="{!v.cartItemList}" var="item" indexVar="index" >
+                                    <c:CartItem cartItem="{!item}" index="{!index}"/>
+                                              
+                                    </aura:iteration>
+                                </aura:if>-->
+                                
+                                <h1> {!v.cartId} </h1>
+                            </div>
+                        </lightning:layoutItem>
+                        
+                        <lightning:layoutItem padding="around-small" size="4">
+                            <div class="page-section page-right">
+                                <h2>Right Sidebar</h2>
+                                
+                                
+                                
+                            </div>
+                        </lightning:layoutItem>
+                    </lightning:layout>
+                </lightning:layoutItem>
+                <lightning:layoutItem flexibility="auto" padding="around-small" size="12">
+                    <div class="page-footer page-section" style =" background-color: #76549A;
+                                                                  text-align: center;
+                                                                  color:white;"           >
+                        
+                        <h2>Footer</h2>
+                    </div>
+                </lightning:layoutItem>
+            </lightning:layout>
+        </div></div>
+</aura:component>

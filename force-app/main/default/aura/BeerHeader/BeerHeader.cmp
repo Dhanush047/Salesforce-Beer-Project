@@ -8,7 +8,7 @@
                                            font-size: xxx-large;
                                            text-align: center;
                                            font-family: fantasy;
-                                           color: #063970;">
+                                           color: black;">
         <div class="slds-page-header__row">
             <div class="slds-page-header__col-title">
                 <div class="slds-media">
@@ -30,6 +30,7 @@
             </div>
             <c:CartInfoComponent/>
         </div>
+   
     </div>  
     
 </aura:component>
