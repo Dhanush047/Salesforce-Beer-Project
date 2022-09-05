@@ -71,8 +71,11 @@ public class CartDetailAuraService
                 
                 
             }else{
-                Cart__c cart = new Cart__c(Coupon__c = getCoupon('Default')[0].Id,Cart_Id__c=String.valueOf(Math.random()),
-                                           Cart_Status__c='Open', Is_Active__c=true, User__c = UserInfo.getUserId());
+                Cart__c cart = new Cart__c(Coupon__c = getCoupon('Default')[0].Id,
+                                           Cart_Id__c=String.valueOf(Math.random()),
+                                           Cart_Status__c='Open', 
+                                           Is_Active__c=true, 
+                                           User__c = UserInfo.getUserId());
                 insert cart;
                 createCartItems(beerList, cart.Id);
                 return  cart.Id;
@@ -90,7 +93,8 @@ public class CartDetailAuraService
         {
              System.debug('getCartItems called cartId -  '+ CartId);
             
-            List<Cart_Item__c> existingItemList = [Select Id, Name, Item_Quantity__c,Beer__c, Beer__r.Name From cart_Item__c 
+            List<Cart_Item__c> existingItemList = [Select Id, Name, Item_Quantity__c,Beer__c, 
+                                                   Beer__r.Name From cart_Item__c 
                                                    Where Cart__c =: cartId];
             
             Map<Id, Cart_Item__c> beerQntyMap = new Map<Id, cart_Item__c>();

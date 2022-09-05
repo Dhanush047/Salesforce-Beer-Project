@@ -1,8 +1,8 @@
-<aura:component implements="lightning:isUrlAddressable" >
+<aura:component implements="lightning:isUrlAddressable" controller = "CartDetailAuraService">
     
     <aura:attribute name="cartId" type="String" />
     <aura:attribute name="cartItemList" type="Object" />
-  <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+  <aura:handler name="init" value="{!this}" action="{!c.doInit2}" />
     
     <div  class="slds-p-around_medium"> 
         <div class="c-container">
@@ -24,7 +24,7 @@
                         <lightning:layoutItem padding="around-small" size="8">
                             <div class="page-section page-main">
                                     <!--Main-->
-                          <!--            <aura:if isTrue="{!v.cartItemList.length > 0}">
+                                     <aura:if isTrue="{!v.cartItemList.length > 0}">
                                     <div class="slds-grid slds-wrap">
                                         <div class="slds-col slds-size_1-of-4"></div>
                                         <div class="slds-col slds-size_1-of-4"><b>Price</b></div>
@@ -32,12 +32,14 @@
                                         <div class="slds-col slds-size_1-of-4"></div>
                                     </div>
                                     <aura:iteration items="{!v.cartItemList}" var="item" indexVar="index" >
-                                    <c:CartItem cartItem="{!item}" index="{!index}"/>
-                                              
-                                    </aura:iteration>
-                                </aura:if>-->
+                                   <!-- <c:CartItem cartItem="{!item}" index="{!index}"/> -->
+                                   
+                                   Cart Item Name = {!item.Beer__r.Name} 
                                 
-                                <h1> {!v.cartId} </h1>
+                                    </aura:iteration>
+                                
+                                </aura:if>
+                                
                             </div>
                         </lightning:layoutItem>
                         
