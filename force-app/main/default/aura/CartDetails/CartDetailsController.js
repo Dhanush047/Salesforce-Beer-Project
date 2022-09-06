@@ -32,13 +32,21 @@ doInit2 : function(component, event, helper)
                                   // console.log("Return length - ", ResultData.length)
                                   // component.set('v.cartItemList', ResultData);
                                   var items = [];
-                                   for(var key in ResultData)
-                                   {
-                                       items.push(ResultData[key]);
-                                   }
+                                  var subTotal;
+                                  for(var key in ResultData){
+          
+                                      items.push(ResultData[key]);
+          
+                                      if(subTotal)
+                                          subTotal = subTotal + ResultData[key].Total_Amount__c
+                                      else
+                                          subTotal = ResultData[key].Total_Amount__c
+                                  }
+                                   component.set('v.subTotal', subTotal);
+          
                                    
                                    component.set('v.cartItemList', items);
-                                   console.log( "Display",items);
+                                   console.log( "items" , items);
                                 
                                    
                                }

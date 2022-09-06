@@ -70,12 +70,11 @@
                         
                         <lightning:layoutItem padding="around-small" size="4">
                             <div class="page-section page-right">
-                                <h2>Right Sidebar</h2>
                                 <div>
                                     <b>Subtotal ({!v.cartItemList.length} item):</b> &nbsp;
                                     <lightning:formattedNumber label="Price" value="{!v.subTotal}" 
-                                          currencyCode="USD"/>
-                                    <br/>
+                                          currencyCode="INR"/>
+                                    <br> </br>
                                 </div>
                                 <lightning:buttonGroup>
                                         
