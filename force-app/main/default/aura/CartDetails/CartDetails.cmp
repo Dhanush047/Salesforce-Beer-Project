@@ -3,6 +3,12 @@
     <aura:attribute name="cartId" type="String" />
     <aura:attribute name="cartItemList" type="Object" />
     <aura:attribute name="subTotal" type="Integer" />
+
+    <aura:attribute name="discountAmount" type="Integer" />
+    <aura:attribute name="errorDiscount" type="String" />
+    <aura:attribute name="isCouponAplied" type="Boolean" />
+    <aura:attribute name="isCouponSuccess" type="Boolean" />
+
     <lightning:navigation aura:id="navService"/>
   <aura:handler name="init" value="{!this}" action="{!c.doInit2}" />
     
@@ -74,8 +80,39 @@
                                     <b>Subtotal ({!v.cartItemList.length} item):</b> &nbsp;
                                     <lightning:formattedNumber label="Price" value="{!v.subTotal}" 
                                           currencyCode="INR"/>
-                                    <br> </br>
-                                </div>
+                                        </div>
+                                        <br> </br>
+                                    <aura:if isTrue="{!!v.isCouponSuccess}">
+
+                                        Have a Coupon?
+                                        
+                                        <a href="JavaScript:void(0);" onclick="{!c.applyCoupon}">
+                                            Apply Here
+                                        </a>
+                                    </aura:if>
+                                    <aura:if isTrue="{!v.isCouponAplied}">
+                                        <aura:if isTrue="{!!v.isCouponSuccess}">
+                                            <p>
+                                                <lightning:input name="input3" aura:id="CouponNo" 
+                                                                 label="15 Digit Valid Coupon No" 
+                                                                 placeholder="type here..."/>
+                                                <lightning:button label="Apply" variant="brand"
+                                                                  onclick="{!c.doApplyCoupon}"/>
+                                            </p>
+                                        </aura:if>
+                                        <aura:if isTrue="{!v.errorDiscount != null}">
+                                            <p style="color:red;">
+                                            	{!v.errorDiscount}
+                                            </p>
+                                        </aura:if>
+                                        <aura:if isTrue="{!v.discountAmount != null}">
+                                            <p style="color:green;">
+                                            	Discount of <b>₹{!v.discountAmount}</b> has been applied to 
+                                            the total of your Cart.
+                                            </p>
+                                        </aura:if>
+                                    </aura:if>
+                               <br> </br>
                                 <lightning:buttonGroup>
                                         
                                         <lightning:button label="Continue Shopping"
