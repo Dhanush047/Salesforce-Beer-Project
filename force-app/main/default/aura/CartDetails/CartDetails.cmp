@@ -2,6 +2,7 @@
     
     <aura:attribute name="cartId" type="String" />
     <aura:attribute name="cartItemList" type="Object" />
+    <lightning:navigation aura:id="navService"/>
   <aura:handler name="init" value="{!this}" action="{!c.doInit2}" />
     
     <div  class="slds-p-around_medium"> 
@@ -31,12 +32,34 @@
                                         <div class="slds-col slds-size_1-of-4"><b>Quantity</b></div>
                                         <div class="slds-col slds-size_1-of-4"></div>
                                     </div>
+                                    <br> </br>
                                     <aura:iteration items="{!v.cartItemList}" var="item" indexVar="index" >
 
                                         <c:CartItems cartItem="{!item}" index="{!index}"/> 
-
+                                        <br> </br>
                                     </aura:iteration>
-                                
+                                    <lightning:buttonGroup>
+                                        
+                                        <lightning:button label="Continue Shopping"
+                                                          onclick="{!c.homePage}"/>
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        &nbsp;
+                                        
+                                        <lightning:button label="Proceed Checkout"
+                                                          variant="brand"
+                                                          onclick="{!c.doCheckout}"/>
+                                        
+                                    </lightning:buttonGroup>
+
+                                    <aura:set attribute="else">
+                                        <img src="https://media1.giphy.com/media/jtECu4KjK3cqiAUMyR/giphy.gif"  class="slds-align_absolute-center" /><br/>
+                                        <a href="JavaScript:void(0);" 
+                                           class="slds-align_absolute-center" onclick='{!c.homePage}'>
+                                            Click Here to add Items
+                                        </a>
+                                    </aura:set> 
                                 </aura:if>
                                 
                             </div>
@@ -53,11 +76,11 @@
                     </lightning:layout>
                 </lightning:layoutItem>
                 <lightning:layoutItem flexibility="auto" padding="around-small" size="12">
-                    <div class="page-footer page-section" style =" background-color: #76549A;
+                    <div class="page-footer page-section" style =" background-color: #030007;
                                                                   text-align: center;
                                                                   color:white;"           >
                         
-                        <h2>Footer</h2>
+                        <h2>Beer Explorer By Salesforce Batch 1 (TM.)</h2>
                     </div>
                 </lightning:layoutItem>
             </lightning:layout>
