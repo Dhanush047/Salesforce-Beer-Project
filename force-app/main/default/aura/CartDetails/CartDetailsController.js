@@ -24,7 +24,6 @@ doInit2 : function(component, event, helper)
         action.setCallback(this, function(response)
                            {
                                var stateResponse = response.getState();
-                                alert(stateResponse)
                                if(stateResponse === 'SUCCESS' || stateResponse === 'DRAFT')
                                {
                              

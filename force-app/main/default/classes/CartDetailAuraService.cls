@@ -93,7 +93,7 @@ public class CartDetailAuraService
         {
              System.debug('getCartItems called cartId -  '+ CartId);
             
-            List<Cart_Item__c> existingItemList = [Select Id, Name, Item_Quantity__c,Beer__c, 
+            List<Cart_Item__c> existingItemList = [Select Id, Name, Item_Quantity__c,Total_Amount__c,Beer__c, 
                                                    Beer__r.Name From cart_Item__c 
                                                    Where Cart__c =: cartId];
             

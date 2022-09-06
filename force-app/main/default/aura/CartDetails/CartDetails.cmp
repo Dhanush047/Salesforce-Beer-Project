@@ -26,16 +26,15 @@
                                     <!--Main-->
                                      <aura:if isTrue="{!v.cartItemList.length > 0}">
                                     <div class="slds-grid slds-wrap">
-                                        <div class="slds-col slds-size_1-of-4"></div>
+                                        <div class="slds-col slds-size_1-of-4"><b>Beer Name</b></div>
                                         <div class="slds-col slds-size_1-of-4"><b>Price</b></div>
                                         <div class="slds-col slds-size_1-of-4"><b>Quantity</b></div>
                                         <div class="slds-col slds-size_1-of-4"></div>
                                     </div>
                                     <aura:iteration items="{!v.cartItemList}" var="item" indexVar="index" >
-                                   <!-- <c:CartItem cartItem="{!item}" index="{!index}"/> -->
-                                   
-                                   Cart Item Name = {!item.Beer__r.Name} 
-                                
+
+                                        <c:CartItems cartItem="{!item}" index="{!index}"/> 
+
                                     </aura:iteration>
                                 
                                 </aura:if>

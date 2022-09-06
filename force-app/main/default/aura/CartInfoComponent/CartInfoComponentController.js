@@ -71,7 +71,6 @@ goToCart2 : function(component, event, helper)
              // alert(response.getReturnValue())
               console.log("cart ID - ", response.getReturnValue())
             if(state === 'SUCCESS' || state === 'DRAFT'){
-                alert("Navigatig")
                 
               var pageReference = component.find("navService");
                 var pageReferenceNav = {    
