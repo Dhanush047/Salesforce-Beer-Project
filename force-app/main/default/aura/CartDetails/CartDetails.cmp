@@ -2,6 +2,7 @@
     
     <aura:attribute name="cartId" type="String" />
     <aura:attribute name="cartItemList" type="Object" />
+    <aura:attribute name="subTotal" type="Integer" />
     <lightning:navigation aura:id="navService"/>
   <aura:handler name="init" value="{!this}" action="{!c.doInit2}" />
     
@@ -54,7 +55,9 @@
                                     </lightning:buttonGroup>
 
                                     <aura:set attribute="else">
-                                        <img src="https://media1.giphy.com/media/jtECu4KjK3cqiAUMyR/giphy.gif"  class="slds-align_absolute-center" /><br/>
+                                        <img src="https://www.ifuelinteractive.com/wp-content/uploads/2018/04/anim-cart.gif" 
+                                             class="slds-align_absolute-center" 
+                                             style = "height: 250px;" /><br/>
                                         <a href="JavaScript:void(0);" 
                                            class="slds-align_absolute-center" onclick='{!c.homePage}'>
                                             Click Here to add Items
@@ -68,7 +71,24 @@
                         <lightning:layoutItem padding="around-small" size="4">
                             <div class="page-section page-right">
                                 <h2>Right Sidebar</h2>
-                                
+                                <div>
+                                    <b>Subtotal ({!v.cartItemList.length} item):</b> &nbsp;
+                                    <lightning:formattedNumber label="Price" value="{!v.subTotal}" 
+                                          currencyCode="USD"/>
+                                    <br/>
+                                </div>
+                                <lightning:buttonGroup>
+                                        
+                                        <lightning:button label="Continue Shopping"
+                                                          onclick="{!c.homePage}"/>
+                                        &nbsp;
+                                        &nbsp;
+                                        
+                                        <lightning:button label="Proceed Checkout"
+                                                          variant="brand"
+                                                          onclick="{!c.doCheckout}"/>
+                                        
+                                    </lightning:buttonGroup>
                                 
                                 
                             </div>
