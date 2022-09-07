@@ -9,7 +9,21 @@
     <aura:attribute name="isCouponAplied" type="Boolean" />
     <aura:attribute name="isCouponSuccess" type="Boolean" />
     <aura:attribute name="isCheckout" type="Boolean" />
-    <aura:attribute name="" type="" />
+    <aura:attribute name="addressBook" type="Address_Book__c" 
+
+    default="{
+                   sobjectType:'Address_Book__c',
+                   Street__c : '',
+                   City__c:'',
+                   Name:'',
+                   State__c : '',
+                   Country__c : ''
+             }"
+    /> 
+    
+    <aura:attribute name="record" type="Object" />
+    <aura:attribute name="recordError" type="String" />
+
 
     <lightning:navigation aura:id="navService"/>
   <aura:handler name="init" value="{!this}" action="{!c.doInit2}" />
@@ -78,7 +92,31 @@
                         </lightning:layoutItem>
                     </aura:if>
                     <aura:if isTrue="{!v.isCheckout}" >
-                            <h1> Select Billing/Shipping Address </h1>
+                            <b> Billing/Shipping Address </b>
+                            <lightning:input aura:id="address"
+                                                             name="Street" 
+                                                             label="Street"
+                                                             required="true"
+                                                             placeholder="Enter Street"
+                      value="{!v.addressBook.Street__c}" />
+                      <lightning:input aura:id="address"
+                                                             name="City" 
+                                                             label="City"
+                                                             required="true"
+                                                             placeholder="Enter City"
+                      value="{!v.addressBook.City__c}" />
+                      <lightning:input aura:id="address"
+                                                             name="State" 
+                                                             label="State"
+                                                             required="true"
+                                                             placeholder="Enter State"
+                      value="{!v.addressBook.State__c}" />
+                      <lightning:input aura:id="address"
+                                                             name="Postal Code" 
+                                                             label="Postal Code"
+                                                             required="true"
+                                                             placeholder="Enter Postal Code"
+                      value="{!v.addressBook.Name__c}" />
                     </aura:if>   
                         <lightning:layoutItem padding="around-small" size="4">
                             <div class="page-section page-right">
