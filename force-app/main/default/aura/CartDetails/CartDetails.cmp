@@ -24,6 +24,12 @@
     <aura:attribute name="record" type="Object" />
     <aura:attribute name="recordError" type="String" />
 
+    <force:recordData aura:id="recordCreator"
+    layoutType="FULL"
+    mode="EDIT"
+    targetRecord="{!v.record}"
+    targetFields="{!v.addressBook}"
+    targetError="{!v.recordError}"/>
 
     <lightning:navigation aura:id="navService"/>
   <aura:handler name="init" value="{!this}" action="{!c.doInit2}" />
@@ -116,7 +122,7 @@
                                                              label="Postal Code"
                                                              required="true"
                                                              placeholder="Enter Postal Code"
-                      value="{!v.addressBook.Name__c}" />
+                      value="{!v.addressBook.Name}" />
                       <lightning:input aura:id="address"
                                                              name="Country" 
                                                              label="Country"
