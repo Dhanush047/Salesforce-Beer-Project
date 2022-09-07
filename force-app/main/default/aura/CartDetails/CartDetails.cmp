@@ -117,6 +117,12 @@
                                                              required="true"
                                                              placeholder="Enter Postal Code"
                       value="{!v.addressBook.Name__c}" />
+                      <lightning:input aura:id="address"
+                                                             name="Country" 
+                                                             label="Country"
+                                                             required="true"
+                                                             placeholder="Enter Country"
+                      value="{!v.addressBook.Country__c}" />
                     </aura:if>   
                         <lightning:layoutItem padding="around-small" size="4">
                             <div class="page-section page-right">
