@@ -8,6 +8,8 @@
     <aura:attribute name="errorDiscount" type="String" />
     <aura:attribute name="isCouponAplied" type="Boolean" />
     <aura:attribute name="isCouponSuccess" type="Boolean" />
+    <aura:attribute name="isCheckout" type="Boolean" />
+    <aura:attribute name="" type="" />
 
     <lightning:navigation aura:id="navService"/>
   <aura:handler name="init" value="{!this}" action="{!c.doInit2}" />
@@ -28,7 +30,7 @@
                 </lightning:layoutItem>
                 <lightning:layoutItem padding="around-small" size="12">
                     <lightning:layout>
-                        
+                        <aura:if isTrue="{!!v.isCheckout}" >
                         <lightning:layoutItem padding="around-small" size="8">
                             <div class="page-section page-main">
                                     <!--Main-->
@@ -45,6 +47,7 @@
                                         <c:CartItems cartItem="{!item}" index="{!index}"/> 
                                         <br> </br>
                                     </aura:iteration>
+                                    <aura:if isTrue="{!!v.isCheckout}" >
                                     <lightning:buttonGroup>
                                         
                                         <lightning:button label="Continue Shopping"
@@ -59,7 +62,7 @@
                                                           onclick="{!c.doCheckout}"/>
                                         
                                     </lightning:buttonGroup>
-
+                                </aura:if>
                                     <aura:set attribute="else">
                                         <img src="https://www.ifuelinteractive.com/wp-content/uploads/2018/04/anim-cart.gif" 
                                              class="slds-align_absolute-center" 
@@ -73,7 +76,10 @@
                                 
                             </div>
                         </lightning:layoutItem>
-                        
+                    </aura:if>
+                    <aura:if isTrue="{!v.isCheckout}" >
+                            <h1> Select Billing/Shipping Address </h1>
+                    </aura:if>   
                         <lightning:layoutItem padding="around-small" size="4">
                             <div class="page-section page-right">
                                 <div>
@@ -113,6 +119,7 @@
                                         </aura:if>
                                     </aura:if>
                                <br> </br>
+                               <aura:if isTrue="{!!v.isCheckout}" >
                                 <lightning:buttonGroup>
                                         
                                         <lightning:button label="Continue Shopping"
@@ -125,7 +132,7 @@
                                                           onclick="{!c.doCheckout}"/>
                                         
                                     </lightning:buttonGroup>
-                                
+                                </aura:if>
                                 
                             </div>
                         </lightning:layoutItem>
