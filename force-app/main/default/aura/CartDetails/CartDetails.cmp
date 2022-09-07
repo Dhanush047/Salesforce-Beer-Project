@@ -123,6 +123,8 @@
                                                              required="true"
                                                              placeholder="Enter Country"
                       value="{!v.addressBook.Country__c}" />
+                      <lightning:button variant="brand" label="Add Address"
+                                                              onclick="{!c.doSaveAddress}"/>
                     </aura:if>   
                         <lightning:layoutItem padding="around-small" size="4">
                             <div class="page-section page-right">
