@@ -15,7 +15,7 @@
                    sobjectType:'Address_Book__c',
                    Street__c : '',
                    City__c:'',
-                   Name:'',
+                   Postal_Code__c:'',
                    State__c : '',
                    Country__c : ''
              }"
@@ -97,8 +97,12 @@
                             </div>
                         </lightning:layoutItem>
                     </aura:if>
+                    
                     <aura:if isTrue="{!v.isCheckout}" >
+                        <lightning:layoutItem padding="around-small" size="8">
+                            <div class="page-section page-main">
                             <b> Billing/Shipping Address </b>
+
                             <lightning:input aura:id="address"
                                                              name="Street" 
                                                              label="Street"
@@ -122,15 +126,18 @@
                                                              label="Postal Code"
                                                              required="true"
                                                              placeholder="Enter Postal Code"
-                      value="{!v.addressBook.Name}" />
+                      value="{!v.addressBook.Postal_Code__c}" />
                       <lightning:input aura:id="address"
                                                              name="Country" 
                                                              label="Country"
                                                              required="true"
                                                              placeholder="Enter Country"
                       value="{!v.addressBook.Country__c}" />
-                      <lightning:button variant="brand" label="Add Address"
+                    <br> </br>
+                      <lightning:button variant="brand" label="Save Address"
                                                               onclick="{!c.doSaveAddress}"/>
+                    </div>
+                     </lightning:layoutItem>
                     </aura:if>   
                         <lightning:layoutItem padding="around-small" size="4">
                             <div class="page-section page-right">
