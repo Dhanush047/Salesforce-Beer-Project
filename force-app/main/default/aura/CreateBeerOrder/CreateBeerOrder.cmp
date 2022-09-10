@@ -3,6 +3,7 @@
     <lightning:navigation aura:id="navService"/>
     <aura:attribute name="beerId" type="String" />
     <aura:attribute name="beerName" type="String" />
+    <aura:handler name="change" value="{!v.pageReference}" action="{!c.reInit}" />
     <div class="slds-p-around_small" style = "font-size: xx-large; text-align: center;
                                               font-family: fantasy;color:#293462;">
         <p> ORDER   BEER   HERE</p>

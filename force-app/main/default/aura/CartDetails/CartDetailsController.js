@@ -247,5 +247,9 @@ doApplyCoupon : function(component, event, helper)
             }
         });
         $A.enqueueAction(action)
-    }
+    },
+    reInit :  function(component, event, helper) 
+    {
+         $A.get('e.force:refreshView').fire();
+    },
 })

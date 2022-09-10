@@ -35,6 +35,7 @@
 
     <lightning:navigation aura:id="navService"/>
   <aura:handler name="init" value="{!this}" action="{!c.doInit2}" />
+  <aura:handler name="change" value="{!v.pageReference}" action="{!c.reInit}" />
   <aura:handler name="change" value="{!v.isCheckout}" action="{!c.getAddress}" />
     <div  class="slds-p-around_medium"> 
         <div class="c-container">
