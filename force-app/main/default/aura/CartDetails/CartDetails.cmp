@@ -49,7 +49,7 @@
                                     color: #00064e;
                                     font-style: normal;
                                     font-family: inherit;">
-                        <h1> CART DETAIL PAGE</h1>
+                        <h1> CART&nbsp;&nbsp; DETAIL&nbsp;&nbsp; PAGE</h1>
                     </div>
                     
                 </lightning:layoutItem>
@@ -240,7 +240,7 @@
                                                                   text-align: center;
                                                                   color:white;"           >
                         
-                        <h2>B E E R    W O R L D</h2>
+                        <h2>B&nbsp;&nbsp;E&nbsp;&nbsp;E&nbsp;&nbsp;R  &nbsp;&nbsp;  W&nbsp;&nbsp;O&nbsp;&nbsp;R&nbsp;&nbsp;L&nbsp;&nbsp;D</h2>
                     </div>
                 </lightning:layoutItem>
             </lightning:layout>
