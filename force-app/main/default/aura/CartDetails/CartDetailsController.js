@@ -115,8 +115,8 @@ doApplyCoupon : function(component, event, helper)
         if(CouponNo){
             var action = component.get('c.checkCoupon');
             action.setParams({
-                Name : CouponNo,
-                CartId : cartId
+                'Name' : CouponNo,
+                'CartId' : cartId
             });
             action.setCallback(this, function(response){
                 var state = response.getState();
@@ -125,7 +125,7 @@ doApplyCoupon : function(component, event, helper)
                     var resultData = response.getReturnValue();
                     if(resultData){
                         component.set('v.discountAmount', resultData);
-
+                        console.log(resultData);
                         component.set('v.errorDiscount',null);
                         component.set('v.isCouponSuccess', true);
                         var discount = resultData;
@@ -151,7 +151,7 @@ doApplyCoupon : function(component, event, helper)
     {
 
         var isValidAddress = helper.validate(component, event, helper);
-        alert(isValidAddress);
+        //alert(isValidAddress);
         if(isValidAddress){
             var userId = $A.get("$SObjectType.CurrentUser.Id");
             component.set('v.addressBook.User__c',userId);
@@ -164,7 +164,15 @@ doApplyCoupon : function(component, event, helper)
                         "message" : "Addressbook has been Save  "+saveResult.recordId
                     });
                     showToast.fire();
-                  
+                    var addList = [];
+                    var addrList = component.get('v.addressList');
+                    if(addrList){
+                        addrList.push(component.get('v.addressBook'));
+                        component.set('v.addressList' , addrList);
+                    }else{
+                        addList.push(component.get('v.addressBook'));
+                        component.set('v.addressList' , addList); 
+                    }
                  //   component.set('v.isNewAddress', false);
                 } else if(saveResult.state === 'INCOMPLETE'){
                     
@@ -175,5 +183,69 @@ doApplyCoupon : function(component, event, helper)
                 }
             });
         }
+    },
+    getAddress :  function(component, event, helper)
+    {
+
+        helper.getaddr(component, event, helper);
+    },
+    onSelect : function(component, event, helper)
+    {
+        var selected = event.getSource().get("v.text");
+        var allAddress = component.get('v.addressList');
+        var selecedAddress = allAddress[selected];
+        //   console.log('selecedAddress ', selecedAddress);
+        component.set('v.selectedAddress', selecedAddress);
+        console.log(' selected address ==== ', component.get('v.selectedAddress'));
+    },
+    placeOrder : function(component, event, helper)
+    {
+        var selecedAdd = component.get('v.selectedAddress');
+        console.log("selected Add ",selecedAdd.Id);
+        var userId = $A.get("$SObjectType.CurrentUser.Id");
+        console.log("user Id = ",userId);
+        console.log("Cart Id",component.get('v.cartId'));
+        console.log("Subtotal = ",component.get('v.subTotal'));
+        var action = component.get('c.createorder');
+        action.setParams({
+            'CartId' : component.get('v.cartId'),
+            'AddressId': selecedAdd.Id,
+            'UserId' : userId,
+            'SubTotal' : component.get('v.subTotal')
+        });
+        action.setCallback(this, function(response){
+            var state = response.getState();
+            if(state === 'SUCCESS' || state === 'DRAFT'){
+                
+                var showToast = $A.get('e.force:showToast');
+                var resustData = response.getReturnValue();
+                showToast.setParams({
+                    "title" : "Record Saved",
+                    "type" : "success",
+                    "message" : "Your Order Has been Successfully Placed." +
+                    "Your tracking Order no is "+resustData.split('####')[0]
+                });
+                showToast.fire();
+                $A.get('e.force:refreshView').fire(); 
+                    var pageReference = component.find("navService");
+                    var pageReferenceNav = {    
+                        "type": "standard__recordPage",
+                        "attributes": {
+                            "recordId":resustData ,
+                            "objectApiName": "Order__c",
+                            "actionName": "view"   
+                        }
+                    };
+                    pageReference.navigate(pageReferenceNav, true);
+            } else if(state === 'INCOMPLETE'){
+                console.log('User is offline and System does not support offline!.');
+            }else if(state === 'ERROR'){
+                var errors = response.getError();
+                console.log('Error Occured ', errors);
+            }else{
+                
+            }
+        });
+        $A.enqueueAction(action)
     }
 })

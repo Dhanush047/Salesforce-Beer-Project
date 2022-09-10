@@ -10,8 +10,15 @@ public class CartDetailAuraService
         public static Decimal checkCoupon(String Name, String CartId){
             List<Coupon__c> couponList =  getCoupon(Name);
             if(couponList !=null && couponList.size() > 0){
-                Cart__c cart = new Cart__c(Id = cartId, Coupon__c =couponList[0].Id );
-                update cart;
+                //Cart__c cart1 = new Cart__c(Id = CartId, Coupon__c = couponList[0].Id );
+                //update cart1;
+                system.debug('Cart iD - ' +CartId);
+                Cart__c car = new Cart__c();
+                car.Id =CartId;
+                car.Coupon__c = couponList[0].Id;
+
+                update car;
+
                 return couponList[0].Price__c;
             }else{
                 return null;
@@ -114,6 +121,36 @@ public class CartDetailAuraService
         public static void deleteItem(String CartItemId){
             Database.delete(CartItemId);
         }
-        
-    
+
+        @AuraEnabled(cacheable=true)
+        public static String fetchdata1()
+        {
+            List<Address_Book__c> add = [SELECT Id, Name, City__c, State__c, Postal_Code__c, Country__c,
+            Street__c, User__c
+                                                             FROM Address_Book__c   
+                                                             WHERE User__c=:userinfo.getUserId() ];
+            return JSON.serialize(add);
+        }
+        @AuraEnabled
+        public static String createorder(String AddressId, String CartId, String UserId, Decimal SubTotal)
+        {
+            system.debug('Starting');
+            Order__c ord = new Order__c();
+            ord.Shipping__c = AddressId;
+            ord.Cart__c = CartId;
+            ord.User__c = UserId;
+            ord.Sub_Total__c = SubTotal;
+             
+            Cart__c car = new Cart__c();
+            car.Cart_Status__c = 'Closed';
+            car.Is_Active__c = false;
+            car.Id = CartId;
+            insert ord;
+            update car;
+             
+            system.debug('Ending');
+            return ord.Id;
+
+        }
+
 }

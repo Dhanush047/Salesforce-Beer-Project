@@ -8,7 +8,6 @@
         });
         action.setCallback(this, function(response){
             var state = response.getState();
-            //alert(state);
             if(state === 'SUCCESS'){
                 $A.get('e.force:refreshView').fire(); 
             }else{
