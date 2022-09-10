@@ -252,4 +252,8 @@ doApplyCoupon : function(component, event, helper)
     {
          $A.get('e.force:refreshView').fire();
     },
+    addNewAddress : function(component, event, helper){
+        
+        component.set('v.isNewAddress', true);
+    }
 })
