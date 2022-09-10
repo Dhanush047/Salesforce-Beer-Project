@@ -25,6 +25,7 @@
     <aura:attribute name="recordError" type="String" />
     <aura:attribute name="addressList" type="Object" />
     <aura:attribute name="selectedAddress" type="Object" />
+    <aura:attribute name="isNewAddress" type="Boolean" />
     
     <force:recordData aura:id="recordCreator"
     layoutType="FULL"
